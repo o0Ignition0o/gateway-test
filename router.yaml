@@ -1,0 +1,197 @@
+cors:
+  allow_any_origin: true
+supergraph:
+  listen: 0.0.0.0:8080
+  introspection: true
+sandbox:
+  enabled: true
+homepage:
+  enabled: false
+include_subgraph_errors:
+  all: true # Propagate errors from all subraphs
+# telemetry:
+#   metrics:
+#     prometheus:
+#       enabled: true
+# preview_subscription:
+#   mode:
+#     passthrough:
+#       # docker setup, for local setup comment out the following section
+#       subgraphs:
+#         reviews:
+#           path: /graphql
+#     callback:
+#       # docker setup, for local setup comment out the following section
+#       # todo: url maybe? followup on the naming here (must be reached by the subgraph)
+#       public_url: "http://localhost:8080/"
+#       listen: 0.0.0.0:8080
+#       subgraphs:
+#         - dicefactory
+
+# docker setup, for local setup comment out the following section
+# override_subgraph_url:
+#   dicefactory: "http://dicefactory:4041"
+#   rng: "http://rng:4042/graphql"
+#   products: "http://products:4000"
+#   users: "http://users:4000"
+#   reviews: "http://reviews:4000/graphql"
+
+
+# supergraph:
+#   listen: 127.0.0.1:4000
+#   introspection: true
+#   #preview_defer_support: true
+#   # apq:
+#   #   experimental_cache:
+#   #     in_memory:
+#   #       limit: 512
+#   #     # redis:
+#   #     #   urls: ["redis://:router@127.0.0.1:6379", "redis://:router@127.0.0.1:6380"]
+#   query_planning:
+#   #   experimental_cache:
+#   #     in_memory:
+#   #       limit: 512
+#   #     # redis:
+#   #     #   urls: ["redis://127.0.0.1:6379"]
+#   #       #urls: ["redis://:router@127.0.0.1:6379", "redis://:router@127.0.0.1:6380"]
+#   #       #urls: ["rediss://127.0.0.1:4101"]
+
+
+#   #       #urls: ["rediss://local.apollo.dev:4101#insecure"]
+#   #     #  urls: ["rediss://local.apollo.dev:4101#insecure", "rediss://local.apollo.dev:4101#insecure"]
+#   #       #urls: ["rediss://:router@local.apollo.dev:4101", "rediss://:router@local.apollo.dev:4101"]
+#   #       #urls: ["redis://:router@127.0.0.1:4101", "redis://:router@127.0.0.1:6380"]
+#   #       # urls: ["redis://:router@127.0.0.1:6379", "redis://:router@127.0.0.1:6380"]
+#     warmed_up_queries: 100
+# sandbox:
+#   enabled: true
+# homepage:
+#   enabled: false
+
+# # tls:
+# #   supergraph:
+# #     certificate: "${file./home/geal/dev/router/perso/server.crt}"
+# #     key: "${file./home/geal/dev/router/perso/server.key}"
+# #     certificate_chain: "${file./home/geal/dev/router/perso/server.crt}"
+
+# #   subgraphs:
+# #     certificate_authorities: "${file./home/geal/dev/test/tls-proxy/server.crt}"
+
+# traffic_shaping:
+#   router:
+#     timeout: 3s
+#   all:
+#     experimental_enable_http2: false 
+#   subgraphs:
+#     products:
+#       experimental_enable_http2: true 
+#   #cache_redis_urls: ["redis://:router@127.0.0.1:6379"]
+#   #all:
+#     #timeout: 1ns
+#     #apq: false
+#   #subgraphs:
+#     #accounts:
+#       #entity_caching:
+#       #  ttl: 10s
+#       #timeout: 1s
+#       #deduplicate_query: true
+#       # global_rate_limit:
+#       #   capacity: 10
+#       #   interval: 10s
+
+# include_subgraph_errors:
+#   all: true
+
+# rhai:
+#   scripts: ./rhai
+#   main: main.rhai
+
+# telemetry:
+#   # apollo:
+#   #   field_level_instrumentation_sampler: 0.05
+#   tracing:
+#     trace_config:
+#       service_name: "router-geal-test"
+#       #sampler: 0.01
+
+#     # datadog:
+#     #   endpoint: "http://127.0.0.1:8126" #default #"http://127.0.0.1:4317"
+#     # otlp: #datadog
+#     #    protocol: grpc
+#     #    endpoint: "http://127.0.0.1:4317"
+#     # jaeger:
+#     #  agent:
+#     #    endpoint: default
+#     # zipkin:
+#     #   # Either 'default' or a URL
+#     #   endpoint: default
+#   metrics:
+   
+#     prometheus:
+#       enabled: true
+#       listen: 127.0.0.1:9090
+#       path: /metrics
+
+
+
+
+
+
+# # # prod mode
+# # sandbox:
+# #   listen: 127.0.0.1:4000 # default
+# #   path: / # default
+# #   supergraph_endpoint_url: https://hello.acme.com/graphql
+# #   enabled: true # default
+# # homepage:
+# #   listen: 127.0.0.1:4000 # default
+# #   path: / # default
+# #   enabled: false # default
+# # # if both are disabled, 400 "Invalid GraphQL request"
+
+# # # dev mode
+# # sandbox:
+# #   enabled: true # explicitly set by dev mode
+# # homepage:
+# #   enabled: false # explicitly set by dev mode
+# # health_check:
+# #   listen: "[::]:8088"
+# #   enabled: true
+# # supergraph:
+# #   listen: "[::]:8080"
+# #   path: "/graphql"
+# #   introspection: true
+# # telemetry:
+# #   tracing:
+# #     jaeger:
+# #       scheduled_delay: 100ms
+# #       agent:
+# #         endpoint: default
+
+# # coprocessor:
+# #   url: http://127.0.0.1:3000 # mandatory URL which is the address of the coprocessor
+# #   timeout: 2s # optional timeout (2 seconds in this example). If not set, defaults to 1 second
+# #   subgraph:
+# #     all:
+# #       response:
+# #         uri: true
+
+
+# # preview_subscription:
+# #   mode:
+# #     passthrough:
+# #     # docker setup, for local setup comment out the following section
+# #       subgraphs:
+# #         reviews:
+# #           path: /graphql
+# #     callback:
+# #       # docker setup, for local setup comment out the following section
+# #       # todo: url maybe? followup on the naming here (must be reached by the subgraph)
+# #       public_url: "http://router:4040/"
+# #       listen: 0.0.0.0:4040
+# #       subgraphs:
+# #         - dicefactory
+# # override_subgraph_url:
+# #   accounts: http://127.0.0.1:4003
+# #   reviews: http://127.0.0.1:4005
+# #   products: http://127.0.0.1:4001

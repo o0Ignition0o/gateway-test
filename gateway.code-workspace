@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "gateway"
+	},
+	{
+		"path": "subgraph-a"
+	},
+	{
+		"path": "subgraph-b"
+	}
+],
+  "settings": {}
+}
